@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #DC2626;
+  --color-primary-dark: #991B1B;
+  --color-dark: #0a0a0a;
+  --color-dark-card: #141414;
+  --color-dark-lighter: #1a1a1a;
+  --color-neon-red: #DC2626;
+  --font-family-heading: "Inter", "Poppins", sans-serif;
+  --font-family-body: "Inter", "Poppins", sans-serif;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-family-body);
+    background-color: var(--color-dark);
+    color: #e5e5e5;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-dark);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .neon-glow {
+    box-shadow: 0 0 5px var(--color-neon-red), 0 0 10px var(--color-neon-red), 0 0 20px var(--color-neon-red), 0 0 40px var(--color-neon-red);
+  }
+
+  .neon-glow-subtle {
+    box-shadow: 0 0 5px var(--color-neon-red), 0 0 10px rgba(220, 38, 38, 0.3);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 5px var(--color-neon-red), 0 0 10px var(--color-neon-red), 0 0 20px var(--color-neon-red);
+  }
+
+  .neon-border {
+    border-color: var(--color-neon-red);
+    box-shadow: 0 0 5px var(--color-neon-red), inset 0 0 5px rgba(220, 38, 38, 0.1);
+  }
+
+  .gradient-dark {
+    background: linear-gradient(180deg, #0a0a0a 0%, #141414 50%, #0a0a0a 100%);
+  }
+}
