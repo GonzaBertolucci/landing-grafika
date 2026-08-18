@@ -36,7 +36,7 @@ export default function Gallery() {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-dark-lighter">
+    <section id="galeria" className="py-20 md:py-28 bg-dark-lighter">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
