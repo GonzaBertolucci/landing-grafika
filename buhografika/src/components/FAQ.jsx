@@ -8,10 +8,6 @@ const faqs = [
     answer: 'El tiempo de entrega depende del tipo de trabajo. Los diseños gráficos suelen estar listos en 2-3 días hábiles, mientras que la cartelería y los cuadros de neón pueden tomar entre 5-10 días hábiles.',
   },
   {
-    question: '¿Hacen envíos a todo el país?',
-    answer: 'Sí, realizamos envíos a todo el país. El costo y tiempo de envío varían según la ubicación. Contactanos para presupuestar el envío a tu zona.',
-  },
-  {
     question: '¿Puedo personalizar completamente mi pedido?',
     answer: '¡Por supuesto! Todos nuestros servicios son 100% personalizables. Trabajamos con vos para lograr exactamente lo que necesitás.',
   },

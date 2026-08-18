@@ -53,7 +53,7 @@
   }
 
   .neon-text {
-    text-shadow: 0 0 5px var(--color-neon-red), 0 0 10px var(--color-neon-red), 0 0 20px var(--color-neon-red);
+    text-shadow: 0 0 6px rgba(220, 38, 38, 0.6), 0 0 12px rgba(220, 38, 38, 0.3), 0 0 20px rgba(220, 38, 38, 0.15);
   }
 
   .neon-border {
