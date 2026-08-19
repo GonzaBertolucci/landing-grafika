@@ -85,7 +85,7 @@ export default function VideoSection() {
           className="flex justify-center mt-12"
         >
           <a
-            href="https://wa.me/5491100000000"
+            href={`https://wa.me/+541167401899?text=${encodeURIComponent('¡Hola! Vi tu pagina y me gustaría pedir más información.')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BA5C] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300"
