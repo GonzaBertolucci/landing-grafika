@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaPlay, FaPause } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function VideoSection() {
   const [playing, setPlaying] = useState(false);
@@ -74,6 +75,28 @@ export default function VideoSection() {
           </div>
 
           <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-3/4 h-6 bg-primary/10 blur-xl rounded-full" />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex justify-center mt-12"
+        >
+          <a
+            href="https://wa.me/5491100000000"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BA5C] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300"
+            style={{
+              boxShadow: '0 0 10px #25D366, 0 0 20px rgba(37, 211, 102, 0.3), 0 0 40px rgba(37, 211, 102, 0.1)',
+            }}
+          >
+            <FaWhatsapp className="text-xl" />
+            <span>Pedí tu presupuesto sin cargo</span>
+            <span className="absolute inset-0 rounded-xl bg-[#25D366] animate-ping opacity-10" />
+          </a>
         </motion.div>
       </div>
     </section>
