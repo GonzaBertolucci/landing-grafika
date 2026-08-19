@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { BsChevronDoubleDown } from 'react-icons/bs';
+import logo from '../assets/buhosinfondo.png';
 
 export default function Hero() {
   return (
@@ -46,23 +47,26 @@ export default function Hero() {
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="relative"
+            className="relative flex justify-center"
           >
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 neon-glow-subtle">
-              <div className="aspect-[4/3] bg-dark-card flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-dark-lighter flex items-center justify-center">
-                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <p className="text-sm">Imagen del local</p>
-                </div>
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              className="relative"
+            >
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border border-primary/20 flex items-center justify-center neon-glow-subtle">
+                <div className="absolute inset-2 rounded-full border border-primary/10" />
+                <img
+                  src={logo}
+                  alt="BuhoGrafika"
+                  className="w-48 h-48 md:w-60 md:h-60 object-contain drop-shadow-[0_0_20px_rgba(220,38,38,0.3)]"
+                />
               </div>
-            </div>
 
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
-            <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary/10 rounded-full blur-xl" />
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-48 h-6 bg-primary/15 blur-xl rounded-full" />
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-primary/10 rounded-full blur-2xl" />
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/10 rounded-full blur-xl" />
+            </motion.div>
           </motion.div>
         </div>
       </div>

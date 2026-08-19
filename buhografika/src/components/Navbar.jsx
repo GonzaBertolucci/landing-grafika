@@ -6,6 +6,7 @@ import logo from '../assets/buhosinfondo.png';
 
 const navLinks = [
   { name: 'Inicio', href: '/' },
+  { name: 'Galería', href: '/galeria' },
   { name: 'Preguntas Frecuentes', href: '#faq' },
   { name: 'Contacto', href: '/contacto' },
 ];
