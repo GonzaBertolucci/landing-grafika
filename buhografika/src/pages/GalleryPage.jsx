@@ -4,22 +4,29 @@ import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+import neon1 from '../assets/images/Neon 1.jpg';
+import neon2 from '../assets/images/Neon 2.jpg';
+import neon3 from '../assets/images/Neon 3.jpg';
+import estampado1 from '../assets/images/Estampado 1.jpg';
+import estampado2 from '../assets/images/Estampado 2.jpg';
+import estampado3 from '../assets/images/Estampado 3.jpg';
+import carteleria1 from '../assets/images/Carteleria 1.jpg';
+import carteleria2 from '../assets/images/Carteleria 2.jpg';
+import carteleria3 from '../assets/images/Carteleria 3.jpg';
+
 const photos = [
-  { id: 1, title: 'Cartelería Comercial', category: 'Cartelería', description: 'Señalética para local comercial' },
-  { id: 2, title: 'Cuadro de Neón', category: 'Neón', description: 'Decoración con luces neón personalizadas' },
-  { id: 3, title: 'Estampado de Remeras', category: 'Estampado', description: 'Impresión directa en prendas' },
-  { id: 4, title: 'Diseño de Marca', category: 'Diseño', description: 'Identidad visual y branding' },
-  { id: 5, title: 'Lona Exterior', category: 'Cartelería', description: 'Impresión en gran formato para fachada' },
-  { id: 6, title: 'Neón LED', category: 'Neón', description: 'Letras en neón para evento' },
-  { id: 7, title: 'Remera Personalizada', category: 'Estampado', description: 'Estampado DTG en algodón' },
-  { id: 8, title: 'Flyer Publicitario', category: 'Diseño', description: 'Diseño gráfico para campaña' },
-  { id: 9, title: 'Acrílico con Luz', category: 'Neón', description: 'Señalización iluminada' },
-  { id: 10, title: 'Gigantografía', category: 'Cartelería', description: 'Gran formato para evento' },
-  { id: 11, title: 'Packaging', category: 'Diseño', description: 'Diseño de etiquetas y envases' },
-  { id: 12, title: 'Camiseta Deportiva', category: 'Estampado', description: 'Sublimación en poliéster' },
+  { id: 1, title: 'Cuadro de Neón 1', category: 'Neón', description: 'Decoración con luces neón personalizadas', src: neon1 },
+  { id: 2, title: 'Cuadro de Neón 2', category: 'Neón', description: 'Letras en neón para evento', src: neon2 },
+  { id: 3, title: 'Cuadro de Neón 3', category: 'Neón', description: 'Señalización iluminada', src: neon3 },
+  { id: 4, title: 'Estampado 1', category: 'Estampado', description: 'Impresión directa en prendas', src: estampado1 },
+  { id: 5, title: 'Estampado 2', category: 'Estampado', description: 'Estampado DTG en algodón', src: estampado2 },
+  { id: 6, title: 'Estampado 3', category: 'Estampado', description: 'Sublimación en poliéster', src: estampado3 },
+  { id: 7, title: 'Cartelería 1', category: 'Cartelería', description: 'Señalética para local comercial', src: carteleria1 },
+  { id: 8, title: 'Cartelería 2', category: 'Cartelería', description: 'Impresión en gran formato', src: carteleria2 },
+  { id: 9, title: 'Cartelería 3', category: 'Cartelería', description: 'Gran formato para evento', src: carteleria3 },
 ];
 
-const categories = ['Todos', 'Neón', 'Estampado', 'Diseño', 'Cartelería'];
+const categories = ['Todos', 'Neón', 'Estampado', 'Cartelería'];
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
@@ -86,7 +93,7 @@ export default function GalleryPage() {
 
           <motion.div
             layout
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
           >
             <AnimatePresence mode="popLayout">
               {filtered.map((photo, index) => (
@@ -100,16 +107,11 @@ export default function GalleryPage() {
                   onClick={() => openLightbox(photo)}
                   className="group relative aspect-square bg-dark-card border border-white/5 rounded-xl overflow-hidden cursor-pointer hover:border-primary/30 transition-all duration-300"
                 >
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-3 rounded-xl bg-dark-lighter flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-300">
-                        <svg className="w-8 h-8 text-gray-600 group-hover:text-primary transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                      </div>
-                      <p className="text-xs text-gray-500">{photo.category}</p>
-                    </div>
-                  </div>
+                  <img
+                    src={photo.src}
+                    alt={photo.title}
+                    className="w-full h-full object-cover"
+                  />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -153,19 +155,14 @@ export default function GalleryPage() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="max-w-3xl w-full aspect-video bg-dark-card border border-white/10 rounded-2xl flex items-center justify-center"
+              className="max-w-4xl w-full aspect-video bg-dark-card border border-white/10 rounded-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="text-center">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-2xl bg-dark-lighter flex items-center justify-center">
-                  <svg className="w-12 h-12 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">{lightbox.title}</h3>
-                <p className="text-gray-400 text-sm mb-1">{lightbox.description}</p>
-                <span className="inline-block bg-primary/20 text-primary text-xs px-3 py-1 rounded-full">{lightbox.category}</span>
-              </div>
+              <img
+                src={lightbox.src}
+                alt={lightbox.title}
+                className="w-full h-full object-contain"
+              />
             </motion.div>
 
             <button
