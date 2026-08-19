@@ -1,19 +1,43 @@
+import React from 'react';
+import { FaEnvelope, FaPhone, FaMap, FaRegClock } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import ContactCard from '../components/ContactCard';
+import ContactForm from '../components/ContactForm';
 
 export default function Contact() {
   return (
-    <>
+    <div className="min-h-screen bg-[#110f0f] text-white flex flex-col font-sans">
       <Navbar />
-      <main className="min-h-screen pt-20">
-        <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">
-            Contacto <span className="text-primary">Buhografika</span>
+      
+      <main className="flex-grow pt-32 pb-16 px-6 flex flex-col items-center justify-center">
+        <div className="w-full max-w-6xl text-center md:text-left mb-6">
+          <h1 className="text-4xl font-bold text-white mb-2">
+            Contacto <span className="text-red-600">Buhografika</span>
           </h1>
-          <p className="text-gray-400">Próximamente...</p>
+        </div>
+        
+        <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 mt-4">
+        
+          <div>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-12 leading-tight">
+              Si Tenes Alguna Consulta,<br />
+              No Dudes En Contactarnos!
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12 mt-8">
+              <ContactCard icon={<FaEnvelope />} title="Email" text="buhofrafika@gmail.com" />
+              <ContactCard icon={<FaPhone />} title="Whatsapp" text="11-674740-1899" />
+              <ContactCard icon={<FaMap />} title="Our Team" text={<span>1773 Turkey Pen Road<br />New York, NY 10013</span>} />
+              <ContactCard icon={<FaRegClock />} title="Horarios De Atencion" text={<span>De lunes a Sabados,<br />9:00 am - 6:00 pm</span>} />
+            </div>
+          </div>
+          <ContactForm />
+
         </div>
       </main>
+
       <Footer />
-    </>
+    </div>
   );
 }
