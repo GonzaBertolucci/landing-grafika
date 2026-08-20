@@ -103,8 +103,14 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-20 bg-[#1c1c1c] text-white font-sans overflow-hidden">
-      <div className="max-w-[1500px] mx-auto px-6 relative">
+    <section className="py-20 relative text-white font-sans overflow-hidden">
+      
+      {/* Fondo gradiente y luz (Mismo estilo que las otras secciones) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-lighter to-dark" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+
+      {/* Contenedor principal con z-10 para quedar sobre el fondo */}
+      <div className="max-w-[1500px] mx-auto px-6 relative z-10">
         
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

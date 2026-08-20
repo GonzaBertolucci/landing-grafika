@@ -1,14 +1,20 @@
 import { motion } from 'framer-motion';
 import { BsChevronDoubleDown } from 'react-icons/bs';
+import { FaWhatsapp } from 'react-icons/fa'; // Importamos el icono de WhatsApp
 import logo from '../assets/buhosinfondo.png';
 
 export default function Hero() {
+  // Reemplaza esto con tu número
+  const numeroWhatsApp = "549116747401899";
+  const mensajePredeterminado = "¡Hola Buhografika! Me gustaría pedir un presupuesto.";
+
   return (
     <section id="nosotros" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="grid md:grid-cols-2 gap-12 items-center">
+          
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
@@ -32,15 +38,34 @@ export default function Hero() {
               comunican.
             </p>
 
-            <motion.a
-              href="#servicios"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-300 neon-glow-subtle"
-            >
-              Nuestros Servicios
-              <BsChevronDoubleDown size={18} />
-            </motion.a>
+            {/* CONTENEDOR DE BOTONES (Alineados uno al lado del otro) */}
+            <div className="flex flex-wrap items-center gap-4">
+              
+              {/* Botón Principal (WhatsApp) */}
+              <motion.a
+                href={`https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajePredeterminado)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#22bf5b] text-white font-bold px-8 py-3 rounded-lg shadow-[0_0_15px_rgba(37,211,102,0.4)] hover:shadow-[0_0_25px_rgba(37,211,102,0.7)] transition-all duration-300"
+              >
+                <FaWhatsapp className="text-xl" />
+                ¡Contactanos!
+              </motion.a>
+
+              {/* Botón Secundario (Servicios - Estilo Fantasma) */}
+              <motion.a
+                href="#servicios"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 border-2 border-red-600 bg-transparent hover:bg-red-600/10 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-300"
+              >
+                Nuestros Servicios
+                <BsChevronDoubleDown size={18} />
+              </motion.a>
+
+            </div>
           </motion.div>
 
           <motion.div
@@ -68,6 +93,7 @@ export default function Hero() {
               <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/10 rounded-full blur-xl" />
             </motion.div>
           </motion.div>
+          
         </div>
       </div>
     </section>
