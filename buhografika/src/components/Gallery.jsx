@@ -40,8 +40,12 @@ export default function Gallery() {
   };
 
   return (
-    <section id="galeria" className="py-20 md:py-28 bg-dark-lighter">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="galeria" className="py-20 md:py-28 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-lighter to-dark" />
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,8 +53,16 @@ export default function Gallery() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          <motion.span
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-block text-primary text-sm font-bold tracking-[0.3em] uppercase mb-4"
+          >
+            Portfolio
+          </motion.span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Alguno de nuestros <span className="text-primary">trabajos realizados</span>
+            Algunos de nuestros <span className="text-primary neon-text">trabajos realizados</span>
           </h2>
         </motion.div>
 
