@@ -51,7 +51,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} BuhoGrafika. Todos los derechos reservados.
           </p>
           <p className="text-gray-600 text-xs">
-            Desarrollado por <span className="text-primary">&lt;Us&gt;</span>
+            Desarrollado por <span className="text-primary">GTB Code</span>
           </p>
         </div>
       </div>

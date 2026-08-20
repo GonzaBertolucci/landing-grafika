@@ -114,7 +114,7 @@ export default function Testimonials() {
         
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Lo que dicen nuestros <span className="text-red-600">clientes</span>
+            Lo que dicen nuestros <span className="text-primary neon-text">clientes</span>
           </h2>
         </div>
 
