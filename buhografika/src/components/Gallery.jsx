@@ -2,12 +2,16 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
+import cartelComercial from '../assets/images/Carrusel cartel comercial 1.jpg';
+import neon from '../assets/images/Carrusel neon 1.jpg';
+import estampado from '../assets/images/Estampado 2.jpg';
+import lona from '../assets/images/Carrusel lona 1.jpg';
+
 const slides = [
-  { id: 1, title: 'Cartelería Comercial', description: 'Señalética para locales comerciales' },
-  { id: 2, title: 'Cuadros de Neón', description: 'Decoración con luces neón personalizadas' },
-  { id: 3, title: 'Estampado de Remeras', description: 'Impresión directa en prendas' },
-  { id: 4, title: 'Diseño Gráfico', description: 'Identidad visual y branding' },
-  { id: 5, title: 'Renovación de Lonas', description: 'Impresión en gran formato' },
+  { id: 1, title: 'Cartelería', description: '', src: cartelComercial },
+  { id: 2, title: 'Cuadros de Neón', description: 'Decoración con luces neón personalizadas', src: neon },
+  { id: 3, title: 'Estampado de Remeras', description: 'Impresión directa en prendas', src: estampado },
+  { id: 4, title: 'Renovación de Lonas', description: 'Impresión en gran formato', src: lona },
 ];
 
 export default function Gallery() {
@@ -61,18 +65,19 @@ export default function Gallery() {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.5, ease: 'easeInOut' }}
-                className="absolute inset-0 flex items-center justify-center"
+                className="absolute inset-0"
               >
-                <div className="text-center px-8">
-                  <div className="w-24 h-24 mx-auto mb-6 rounded-2xl bg-dark-lighter flex items-center justify-center border border-white/5">
-                    <svg className="w-12 h-12 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
+                <img
+                  src={slides[current].src}
+                  alt={slides[current].title}
+                  className="w-full h-full object-contain"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
                     {slides[current].title}
                   </h3>
-                  <p className="text-gray-400 text-sm md:text-base">
+                  <p className="text-gray-300 text-sm md:text-base">
                     {slides[current].description}
                   </p>
                 </div>
