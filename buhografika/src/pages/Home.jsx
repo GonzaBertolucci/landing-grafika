@@ -6,6 +6,8 @@ import Gallery from '../components/Gallery';
 import WhatsAppButton from '../components/WhatsAppButton';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
+import Testimonials from '../components/Testimonials';
+import CtaFinal from '../components/CtaFinal';
 
 export default function Home() {
   return (
@@ -16,7 +18,9 @@ export default function Home() {
         <Services />
         <VideoSection />
         <Gallery />
+        <Testimonials />
         <FAQ />
+        <CtaFinal />
       </main>
       <WhatsAppButton />
       <Footer />

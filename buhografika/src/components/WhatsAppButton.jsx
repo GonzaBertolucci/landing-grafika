@@ -3,7 +3,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 export default function WhatsAppButton() {
 
-  const phoneNumber = "+541167401899";
+  const phoneNumber = "541167401899";
   const message = "¡Hola! Vi tu pagina y me gustaría pedir más información."
 
   const whatsappUrl= `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
