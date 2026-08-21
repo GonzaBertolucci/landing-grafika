@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
 import { BsChevronDoubleDown } from 'react-icons/bs';
-import { FaWhatsapp } from 'react-icons/fa'; // Importamos el icono de WhatsApp
+import { FaWhatsapp } from 'react-icons/fa';
 import logo from '../assets/buhosinfondo.png';
 
 export default function Hero() {
-  // Reemplaza esto con tu número
-  const numeroWhatsApp = "549116747401899";
+  const numeroWhatsApp = "541167401899";
   const mensajePredeterminado = "¡Hola Buhografika! Me gustaría pedir un presupuesto.";
 
   return (
