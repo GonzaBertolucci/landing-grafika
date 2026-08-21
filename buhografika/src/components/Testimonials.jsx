@@ -5,71 +5,71 @@ const testimonios = [
   {
     id: 1,
     nombre: "Martín López",
-    negocio: "Atlas Gym & Fitness", 
+    negocio: "", 
     texto: "Excelente calidad en las letras corpóreas. El local quedó increíble y la instalación fue súper rápida. Recomendadísimos.",
     estrellas: 5
   },
   {
     id: 2,
     nombre: "Sofía Martínez",
-    negocio: "Decoración de Interiores",
+    negocio: "",
     texto: "Pedí un cuadro de neón personalizado para un evento y superó mis expectativas. Los colores brillan espectacular, gran terminación.",
     estrellas: 5
   },
   {
     id: 3,
     nombre: "Javier Rodríguez",
-    negocio: "Cervecería Artesanal",
+    negocio: "",
     texto: "Hicimos toda la cartelería comercial y el estampado de remeras con ellos. Todo entregado en tiempo y forma. Un 10.",
     estrellas: 5
   },
   {
     id: 4,
     nombre: "Bruno Dias",
-    negocio: "Wayne Enterprises",
+    negocio: "",
     texto: "Eu so batman",
     estrellas: 5
   },
   {
     id: 5,
-    nombre: "Persona 100% real",
-    negocio: "Negocio 100% no fake",
-    texto: "Lorem ipsum.",
+    nombre: "Claudio Gattoronchieri",
+    negocio: "",
+    texto: "Oscar Romero es Dios.",
     estrellas: 5
   },
   {
     id: 6,
-    nombre: "Persona 100% real 2",
-    negocio: "Negocio 100% no fake",
-    texto: "Lorem ipsum.",
+    nombre: "Lara Dorneles De Souza",
+    negocio: "",
+    texto: "Excelente atencion y trabajo. Muy recomendable 10/10",
     estrellas: 5
   },
   {
     id: 7,
-    nombre: "Persona 100% real 3",
-    negocio: "Negocio 100% no fake",
-    texto: "Lorem ipsum.",
+    nombre: "Luz Publicidad",
+    negocio: "",
+    texto: "Unos genios, me salvaron con una impresión de último momento. Rápidos, buena calidad y re buena atención. Súper recomendados.",
     estrellas: 5
   },
   {
     id: 8,
-    nombre: "Persona 100% real 4",
-    negocio: "Negocio 100% no fake",
-    texto: "Lorem ipsum.",
+    nombre: "Micaela de la plaza",
+    negocio: "",
+    texto: "Excelente atención, servicio y calidad. En dos oportunidades nos realizaron remeras estampadas y el cartel para nuestro negocio. Un lujo!",
     estrellas: 5
   },
   {
     id: 9,
-    nombre: "Persona 100% real 5",
-    negocio: "Negocio 100% no fake",
-    texto: "Lorem ipsum.",
+    nombre: "Gonzalo Bertolucci",
+    negocio: "",
+    texto: "Muy buena atención, me explicaron todo con paciencia y me ayudaron a elegir lo mejor para lo que necesitaba. El trabajo quedó excelente y lo tuvieron listo super rápido. Se nota que saben lo que hacen. Súper recomendado!",
     estrellas: 5
   },
   {
     id: 10,
-    nombre: "Persona 100% real 6",
-    negocio: "Negocio 100% no fake",
-    texto: "Lorem ipsum.",
+    nombre: "Valentin Morales",
+    negocio: "",
+    texto: "Quedé muy conforme con el trabajo. Me asesoraron desde el inicio, resolvieron todas mis dudas y el resultado final superó mis expectativas. Los materiales son de calidad y se nota en el resultado todo el empeño en el laburo que hacen. Además, entregaron en tiempo y forma. Muy recomendable.",
     estrellas: 5
   }
 ];
