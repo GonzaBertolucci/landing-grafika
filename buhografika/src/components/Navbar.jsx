@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 import logo from '../assets/buhosinfondo.png';
@@ -64,7 +64,10 @@ export default function Navbar() {
       }
     } else if (href === '/') {
       if (location.pathname === '/') {
-        window.location.reload();
+        // 1. Limpiamos el #faq de la URL sin recargar la página
+        window.history.replaceState(null, '', '/');
+        // 2. Usamos TU función para subir suavemente
+        smoothScrollTo(0);
       } else {
         navigate('/');
       }

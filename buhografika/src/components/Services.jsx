@@ -3,31 +3,31 @@ import { FaImage, FaCircle, FaBuilding, FaLightbulb, FaPrint } from 'react-icons
 
 const services = [
   {
-    icon: FaImage,
-    title: 'Carteles',
-    description: 'Carteles personalizados para locales, eventos y todo tipo de espacios.',
-    gradient: 'from-red-600/20 to-orange-600/20',
-    number: '01',
-  },
-  {
-    icon: FaCircle,
-    title: 'Pastillas',
-    description: 'Pastillas iluminadas con diseños únicos, ideales para bares y negocios.',
-    gradient: 'from-red-600/20 to-pink-600/20',
-    number: '02',
-  },
-  {
     icon: FaBuilding,
     title: 'Corpóreos',
     description: 'Letras corpóreas y señalética tridimensional para fachadas y interiores.',
     gradient: 'from-red-600/20 to-purple-600/20',
-    number: '03',
+    number: '01',
   },
   {
     icon: FaLightbulb,
     title: 'Neón LED',
     description: 'Letras y diseños en neón LED personalizados para decorar cualquier espacio.',
     gradient: 'from-red-600/20 to-rose-600/20',
+    number: '02',
+  },
+  {
+    icon: FaImage,
+    title: 'Carteles',
+    description: 'Carteles personalizados para locales, eventos y todo tipo de espacios.',
+    gradient: 'from-red-600/20 to-orange-600/20',
+    number: '03',
+  },
+  {
+    icon: FaCircle,
+    title: 'Pastillas',
+    description: 'Pastillas iluminadas con diseños únicos, ideales para bares y negocios.',
+    gradient: 'from-red-600/20 to-pink-600/20',
     number: '04',
   },
   {
