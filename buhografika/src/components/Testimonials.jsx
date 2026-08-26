@@ -105,11 +105,9 @@ export default function Testimonials() {
   return (
     <section className="py-20 relative text-white font-sans overflow-hidden">
       
-      {/* Fondo gradiente y luz ambiental */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-lighter to-dark" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
-      {/* Contenedor principal */}
       <div className="max-w-[1500px] mx-auto px-6 relative z-10">
         
         <div className="text-center mb-16">
@@ -132,26 +130,20 @@ export default function Testimonials() {
             {testimonios.map((testimonio) => (
               <div key={testimonio.id} className="snap-center shrink-0 w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] xl:w-[calc(20%-1.2rem)] h-auto">
                 
-                {/* TARJETA CON EL NUEVO ESTILO (IDÉNTICO A SERVICIOS) */}
                 <div className="group relative bg-dark-card/80 backdrop-blur-sm border border-white/5 rounded-2xl p-8 h-full flex flex-col overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 shadow-lg">
                   
-                  {/* Gradiente de fondo al hacer hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   
-                  {/* Contenido (z-10 para estar sobre el gradiente) */}
                   <div className="relative z-10 flex flex-col h-full">
                     
-                    {/* Estrellas (con un ligero efecto de escala al pasar el mouse) */}
                     <div className="flex text-yellow-500/90 mb-6 text-xl group-hover:scale-105 transition-transform duration-300 origin-left">
                       {[...Array(testimonio.estrellas)].map((_, index) => <FaStar key={index} className="mr-1" />)}
                     </div>
                     
-                    {/* Texto del testimonio */}
                     <p className="text-gray-400 mb-8 flex-grow italic leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
                       "{testimonio.texto}"
                     </p>
                     
-                    {/* Nombre y Negocio */}
                     <div>
                       <h4 className="font-bold text-white text-lg group-hover:text-primary transition-colors duration-300">
                         {testimonio.nombre}
@@ -163,11 +155,9 @@ export default function Testimonials() {
 
                   </div>
 
-                  {/* Línea brillante inferior (Aparece en hover) */}
                   <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 </div>
-                {/* FIN DE LA TARJETA */}
 
               </div>
             ))}

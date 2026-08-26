@@ -1,4 +1,6 @@
 import { FaWhatsapp, FaInstagram, FaEnvelope } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import Privacidad from '../components/Privacidad';
 
 export default function Footer() {
   return (
@@ -47,9 +49,17 @@ export default function Footer() {
 
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-xs">
-            &copy; {new Date().getFullYear()} BuhoGrafika. Todos los derechos reservados.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+            <a
+              href="/privacidad"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 text-xs hover:text-primary transition-colors"
+            >
+              © {new Date().getFullYear()} BuhoGrafika. Todos los derechos reservados.
+            </a>
+
+          </div>
           <p className="text-gray-600 text-xs">
             Desarrollado por <span className="text-primary">GTB Code</span>
           </p>

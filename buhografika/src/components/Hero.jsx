@@ -37,10 +37,8 @@ export default function Hero() {
               comunican.
             </p>
 
-            {/* CONTENEDOR DE BOTONES (Alineados uno al lado del otro) */}
             <div className="flex flex-wrap items-center gap-4">
               
-              {/* Botón Principal (WhatsApp) */}
               <motion.a
                 href={`https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajePredeterminado)}`}
                 target="_blank"
@@ -53,7 +51,6 @@ export default function Hero() {
                 ¡Contactanos!
               </motion.a>
 
-              {/* Botón Secundario (Servicios - Estilo Fantasma) */}
               <motion.a
                 href="#servicios"
                 whileHover={{ scale: 1.05 }}
