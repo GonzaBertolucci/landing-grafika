@@ -105,11 +105,11 @@ export default function Testimonials() {
   return (
     <section className="py-20 relative text-white font-sans overflow-hidden">
       
-      {/* Fondo gradiente y luz (Mismo estilo que las otras secciones) */}
+      {/* Fondo gradiente y luz ambiental */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-lighter to-dark" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
-      {/* Contenedor principal con z-10 para quedar sobre el fondo */}
+      {/* Contenedor principal */}
       <div className="max-w-[1500px] mx-auto px-6 relative z-10">
         
         <div className="text-center mb-16">
@@ -118,36 +118,63 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        <div className="relative group">
+        <div className="relative group/slider">
           
-          <button onClick={slideLeft} className="absolute top-1/2 -left-4 md:-left-8 transform -translate-y-1/2 z-10 bg-red-600 hover:bg-red-700 text-white p-3 rounded-full shadow-[0_0_15px_rgba(255,0,0,0.5)] transition-all hidden md:block opacity-0 group-hover:opacity-100">
-            <FaChevronLeft />
+          <button onClick={slideLeft} className="absolute left-0 md:-left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-dark/80 backdrop-blur-sm border border-white/10 flex items-center justify-center text-gray-300 hover:text-primary hover:border-primary/50 transition-all duration-300 hidden md:flex opacity-0 group-hover/slider:opacity-100 shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_20px_rgba(220,38,38,0.3)]">
+            <FaChevronLeft size={16} />
           </button>
 
           <div 
             ref={sliderRef}
-            className="flex overflow-x-auto gap-6 snap-x snap-mandatory scroll-smooth pb-8 pt-2 [&::-webkit-scrollbar]:hidden"
+            className="flex overflow-x-auto gap-6 snap-x snap-mandatory scroll-smooth pb-8 pt-4 px-2 [&::-webkit-scrollbar]:hidden"
             style={{ scrollbarWidth: 'none' }}
           >
             {testimonios.map((testimonio) => (
-              <div key={testimonio.id} className="snap-center shrink-0 w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] xl:w-[calc(20%-1.2rem)]">
-                {/* ... (Tu código de la tarjeta queda exactamente igual) */}
-                <div className="bg-[#1e1e1e] border-2 border-transparent hover:border-red-600 transition-colors duration-300 rounded-2xl p-8 flex flex-col h-full shadow-lg">
-                  <div className="flex text-yellow-500 mb-6 text-xl">
-                    {[...Array(testimonio.estrellas)].map((_, index) => <FaStar key={index} className="mr-1" />)}
+              <div key={testimonio.id} className="snap-center shrink-0 w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] xl:w-[calc(20%-1.2rem)] h-auto">
+                
+                {/* TARJETA CON EL NUEVO ESTILO (IDÉNTICO A SERVICIOS) */}
+                <div className="group relative bg-dark-card/80 backdrop-blur-sm border border-white/5 rounded-2xl p-8 h-full flex flex-col overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 shadow-lg">
+                  
+                  {/* Gradiente de fondo al hacer hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  
+                  {/* Contenido (z-10 para estar sobre el gradiente) */}
+                  <div className="relative z-10 flex flex-col h-full">
+                    
+                    {/* Estrellas (con un ligero efecto de escala al pasar el mouse) */}
+                    <div className="flex text-yellow-500/90 mb-6 text-xl group-hover:scale-105 transition-transform duration-300 origin-left">
+                      {[...Array(testimonio.estrellas)].map((_, index) => <FaStar key={index} className="mr-1" />)}
+                    </div>
+                    
+                    {/* Texto del testimonio */}
+                    <p className="text-gray-400 mb-8 flex-grow italic leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                      "{testimonio.texto}"
+                    </p>
+                    
+                    {/* Nombre y Negocio */}
+                    <div>
+                      <h4 className="font-bold text-white text-lg group-hover:text-primary transition-colors duration-300">
+                        {testimonio.nombre}
+                      </h4>
+                      <p className="text-primary/90 text-sm font-semibold mt-1">
+                        {testimonio.negocio}
+                      </p>
+                    </div>
+
                   </div>
-                  <p className="text-gray-300 mb-8 flex-grow italic leading-relaxed">"{testimonio.texto}"</p>
-                  <div>
-                    <h4 className="font-bold text-white text-lg">{testimonio.nombre}</h4>
-                    <p className="text-red-500 text-sm font-semibold mt-1">{testimonio.negocio}</p>
-                  </div>
+
+                  {/* Línea brillante inferior (Aparece en hover) */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
                 </div>
+                {/* FIN DE LA TARJETA */}
+
               </div>
             ))}
           </div>
 
-          <button onClick={slideRight} className="absolute top-1/2 -right-4 md:-right-8 transform -translate-y-1/2 z-10 bg-red-600 hover:bg-red-700 text-white p-3 rounded-full shadow-[0_0_15px_rgba(255,0,0,0.5)] transition-all hidden md:block opacity-0 group-hover:opacity-100">
-            <FaChevronRight />
+          <button onClick={slideRight} className="absolute right-0 md:-right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-dark/80 backdrop-blur-sm border border-white/10 flex items-center justify-center text-gray-300 hover:text-primary hover:border-primary/50 transition-all duration-300 hidden md:flex opacity-0 group-hover/slider:opacity-100 shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_20px_rgba(220,38,38,0.3)]">
+            <FaChevronRight size={16} />
           </button>
 
         </div>

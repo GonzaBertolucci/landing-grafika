@@ -9,16 +9,19 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-[#110f0f] text-white flex flex-col font-sans">
       <Navbar />
-      
-      <main className="flex-grow pt-32 pb-16 px-6 flex flex-col items-center justify-center">
-        <div className="w-full max-w-6xl text-center md:text-left mb-6">
+
+      <main className="flex-grow pt-32 pb-16 px-6 flex flex-col items-center justify-center relative overflow-hidden">
+
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+
+        <div className="w-full max-w-6xl text-center md:text-left mb-6 relative z-10">
           <h1 className="text-4xl font-bold text-white mb-2">
-            Contacto <span className="text-red-600">Buhografika</span>
+            Contacto <span className="text-primary neon-text">Buhografika</span>
           </h1>
         </div>
-        
+
         <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 mt-4">
-        
+
           <div>
             <h2 className="text-3xl lg:text-4xl font-bold mb-12 leading-tight">
               Si Tenes Alguna Consulta,<br />

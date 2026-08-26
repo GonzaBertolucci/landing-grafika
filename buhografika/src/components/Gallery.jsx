@@ -40,18 +40,19 @@ export default function Gallery() {
   };
 
   return (
-    <section id="galeria" className="py-20 md:py-28 relative overflow-hidden">
+    <section id="galeria" className="py-20 md:py-28 relative overflow-hidden flex flex-col">
+      {/* Fondos y Luces ambientales */}
       <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-lighter to-dark" />
-
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 1. Contenedor del Título (Mantiene sus márgenes para estar centrado) */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center"
         >
           <motion.span
             initial={{ opacity: 0, scale: 0.8 }}
@@ -65,68 +66,73 @@ export default function Gallery() {
             Algunos de nuestros <span className="text-primary neon-text">trabajos realizados</span>
           </h2>
         </motion.div>
+      </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-dark-card aspect-[16/9]">
-            <AnimatePresence custom={direction} mode="wait">
-              <motion.div
-                key={current}
-                custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.5, ease: 'easeInOut' }}
-                className="absolute inset-0"
-              >
-                <img
-                  src={slides[current].src}
-                  alt={slides[current].title}
-                  className="w-full h-full object-contain"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
-                    {slides[current].title}
-                  </h3>
-                  <p className="text-gray-300 text-sm md:text-base">
-                    {slides[current].description}
-                  </p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          <button
-            onClick={prev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark/80 border border-white/10 flex items-center justify-center text-gray-300 hover:text-primary hover:border-primary/30 transition-all duration-300"
+      {/* 2. Contenedor del Carrusel (FULL SCREEN: w-full y alto relativo a la pantalla) */}
+      <div className="relative z-10 w-full h-[60vh] md:h-[80vh] bg-dark-card border-y border-white/10 overflow-hidden">
+        <AnimatePresence custom={direction} mode="wait">
+          <motion.div
+            key={current}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            className="absolute inset-0"
           >
-            <FaChevronLeft size={14} />
-          </button>
+            {/* object-cover hace que la imagen llene toda la pantalla sin deformarse */}
+            <img
+              src={slides[current].src}
+              alt={slides[current].title}
+              className="w-full h-full object-cover"
+            />
+            {/* Gradiente más alto para asegurar que el texto se lea bien sobre cualquier foto */}
+            <div className="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent" />
+            
+            {/* Textos descriptivos (ahora centrados y con más espacio) */}
+            <div className="absolute bottom-20 left-0 right-0 p-6 md:p-12 max-w-7xl mx-auto text-center md:text-left">
+              <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+                {slides[current].title}
+              </h3>
+              <p className="text-gray-200 text-base md:text-xl max-w-2xl drop-shadow-md">
+                {slides[current].description}
+              </p>
+            </div>
+          </motion.div>
+        </AnimatePresence>
 
-          <button
-            onClick={next}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-dark/80 border border-white/10 flex items-center justify-center text-gray-300 hover:text-primary hover:border-primary/30 transition-all duration-300"
-          >
-            <FaChevronRight size={14} />
-          </button>
+        {/* Botones de Navegación (Más grandes y separados de los bordes) */}
+        <button
+          onClick={prev}
+          className="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full bg-dark/80 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:text-primary hover:border-primary/50 hover:bg-dark transition-all duration-300 z-20"
+        >
+          <FaChevronLeft size={20} />
+        </button>
 
-          <div className="flex justify-center gap-2 mt-6">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setDirection(index > current ? 1 : -1);
-                  setCurrent(index);
-                }}
-                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  index === current
-                    ? 'bg-primary w-8'
-                    : 'bg-gray-600 hover:bg-gray-500'
-                }`}
-              />
-            ))}
-          </div>
+        <button
+          onClick={next}
+          className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full bg-dark/80 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:text-primary hover:border-primary/50 hover:bg-dark transition-all duration-300 z-20"
+        >
+          <FaChevronRight size={20} />
+        </button>
+
+        {/* Puntos Indicadores (Ahora flotan sobre la imagen abajo al centro) */}
+        <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-3 z-20">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setDirection(index > current ? 1 : -1);
+                setCurrent(index);
+              }}
+              className={`h-2.5 rounded-full transition-all duration-300 ${
+                index === current
+                  ? 'bg-primary w-10 shadow-[0_0_10px_rgba(220,38,38,0.8)]'
+                  : 'bg-white/40 hover:bg-white/70 w-2.5'
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>
