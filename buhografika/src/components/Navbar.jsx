@@ -6,7 +6,7 @@ import logo from '../assets/buhosinfondo.png';
 
 const navLinks = [
   { name: 'Inicio', href: '/' },
-  { name: 'Galería', href: '/galeria' },
+  { name: 'Trabajos', href: '/galeria' },
   { name: 'Preguntas Frecuentes', href: '#faq' },
   { name: 'Contacto', href: '/contacto' },
 ];
@@ -64,9 +64,7 @@ export default function Navbar() {
       }
     } else if (href === '/') {
       if (location.pathname === '/') {
-        // 1. Limpiamos el #faq de la URL sin recargar la página
         window.history.replaceState(null, '', '/');
-        // 2. Usamos TU función para subir suavemente
         smoothScrollTo(0);
       } else {
         navigate('/');

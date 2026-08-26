@@ -4,7 +4,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import logo from '../assets/buhosinfondo.png';
 
 export default function Hero() {
-  const numeroWhatsApp = "541167401899";
+  const numeroWhatsApp = "541122389792";
   const mensajePredeterminado = "¡Hola Buhografika! Me gustaría pedir un presupuesto.";
 
   return (

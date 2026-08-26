@@ -21,7 +21,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <FaWhatsapp className="text-[#25D366]" />
-                <span>11-6740-1899</span>
+                <span>11-2238-9792<br />11-6740-1899</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <FaEnvelope className="text-primary" />

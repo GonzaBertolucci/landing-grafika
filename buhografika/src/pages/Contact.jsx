@@ -27,7 +27,7 @@ export default function Contact() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12 mt-8">
               <ContactCard icon={<FaEnvelope />} title="Email" text="buhografika@gmail.com" />
-              <ContactCard icon={<FaPhone />} title="Whatsapp" text="11-6740-1899" />
+              <ContactCard icon={<FaPhone />} title="Whatsapp" text={<span>11-2238-9792<br />11-6740-1899</span>} />
               <ContactCard icon={<FaMap />} title="Nuestra ubicacion" text={<span>Eva Perón 2923<br />B1614CLF Villa de Mayo<br />Provincia de Buenos Aires</span>} />
               <ContactCard icon={<FaRegClock />} title="Horarios De Atencion" text={<span>De lunes a Sabados,<br />9:00 am - 6:00 pm</span>} />
             </div>

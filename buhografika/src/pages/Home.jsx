@@ -15,9 +15,9 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Gallery />
         <Services />
         <VideoSection />
-        <Gallery />
         <Testimonials />
         <FAQ />
         <CtaFinal />
