@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
-import logo from '../assets/buhosinfondo.png';
+import logo from '../assets/images/Logo1.webp';
 
 const navLinks = [
   { name: 'Inicio', href: '/' },

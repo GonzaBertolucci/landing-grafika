@@ -4,26 +4,120 @@ import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-import neon1 from '../assets/images/Neon 1.jpg';
-import neon2 from '../assets/images/Neon 2.jpg';
-import neon3 from '../assets/images/Neon 3.jpg';
-import estampado1 from '../assets/images/Estampado 1.jpg';
-import estampado2 from '../assets/images/Estampado 2.jpg';
-import estampado3 from '../assets/images/Estampado 3.jpg';
-import carteleria1 from '../assets/images/Carteleria 1.jpg';
-import carteleria2 from '../assets/images/Carteleria 2.jpg';
-import carteleria3 from '../assets/images/Carteleria 3.jpg';
+import corporeo1 from '../assets/images/Corporeos/Corporeo 1.webp';
+import corporeo2 from '../assets/images/Corporeos/Corporeo 2.webp';
+import corporeo3 from '../assets/images/Corporeos/Corporeo 3.webp';
+import corporeo4 from '../assets/images/Corporeos/Corporeo 4.webp';
+import corporeo5 from '../assets/images/Corporeos/Corporeo 5.webp';
+import corporeo6 from '../assets/images/Corporeos/Corporeo 6.webp';
+import corporeo7 from '../assets/images/Corporeos/Corporeo 7.webp';
+import corporeo8 from '../assets/images/Corporeos/Corporeo 8.webp';
+import corporeo9 from '../assets/images/Corporeos/Corporeo 9.webp';
+import corporeo10 from '../assets/images/Corporeos/Corporeo 10.webp';
+import corporeo11 from '../assets/images/Corporeos/Corporeo 11.webp';
+import corporeo12 from '../assets/images/Corporeos/Corporeo 12.webp';
+import corporeo13 from '../assets/images/Corporeos/Corporeo 13.webp';
+import corporeo14 from '../assets/images/Corporeos/Corporeo 14.webp';
+import corporeo15 from '../assets/images/Corporeos/Corporeo 15.webp';
+import corporeo16 from '../assets/images/Corporeos/Corporeo 16.webp';
+import corporeo17 from '../assets/images/Corporeos/Corporeo 17.webp';
+import corporeo18 from '../assets/images/Corporeos/Corporeo 18.webp';
+import corporeo19 from '../assets/images/Corporeos/Corporeo 19.webp';
+import corporeo20 from '../assets/images/Corporeos/Corporeos 20.webp';
+
+import neon1 from '../assets/images/Neon Led/Neon Led 1.webp';
+import neon2 from '../assets/images/Neon Led/Neon Led 2.webp';
+import neon3 from '../assets/images/Neon Led/Neon Led 3.webp';
+import neon4 from '../assets/images/Neon Led/Neon Led 4.webp';
+import neon5 from '../assets/images/Neon Led/Neon Led 5.webp';
+import neon6 from '../assets/images/Neon Led/Neon Led 6.webp';
+import neon7 from '../assets/images/Neon Led/Neon Led 7.webp';
+import neon8 from '../assets/images/Neon Led/Neon Led 8.webp';
+import neon9 from '../assets/images/Neon Led/Neon Led 9.webp';
+import neon10 from '../assets/images/Neon Led/Neon Led 10.webp';
+import neon11 from '../assets/images/Neon Led/Neon Led 11.webp';
+
+import pastilla1 from '../assets/images/Pastillas/Pastilla 1.webp';
+import pastilla2 from '../assets/images/Pastillas/Pastilla 2.webp';
+import pastilla3 from '../assets/images/Pastillas/Pastilla 3.webp';
+import pastilla4 from '../assets/images/Pastillas/Pastilla 4.webp';
+import pastilla5 from '../assets/images/Pastillas/Pastilla 5.webp';
+import pastilla6 from '../assets/images/Pastillas/Pastilla 6.webp';
+import pastilla7 from '../assets/images/Pastillas/Pastilla 7.webp';
+
+import carteleria1 from '../assets/images/Carteleria/Carteleria 1.webp';
+import carteleria2 from '../assets/images/Carteleria/Carteleria 2.webp';
+import carteleria3 from '../assets/images/Carteleria/Carteleria 3.webp';
+import carteleria4 from '../assets/images/Carteleria/Carteleria 4.webp';
+import carteleria5 from '../assets/images/Carteleria/Carteleria 5.webp';
+import carteleria6 from '../assets/images/Carteleria/Carteleria 6.webp';
+import carteleria7 from '../assets/images/Carteleria/Carteleria 7.webp';
+import carteleria8 from '../assets/images/Carteleria/Carteleria 8.webp';
+import carteleria9 from '../assets/images/Carteleria/Carteleria 9.webp';
+import carteleria10 from '../assets/images/Carteleria/Carteleria 10.webp';
+import carteleria11 from '../assets/images/Carteleria/Carteleria 11.webp';
+import carteleria12 from '../assets/images/Carteleria/Carteleria 12.webp';
+import carteleria13 from '../assets/images/Carteleria/Carteleria 13.webp';
+import carteleria14 from '../assets/images/Carteleria/Carteleria 14.webp';
+import carteleria15 from '../assets/images/Carteleria/Carteleria 15.webp';
 
 const photos = [
-  { id: 1, title: 'Cuadro de Neón 1', category: 'Neón LED', description: 'Cartel Personalizado con luces de Neón', src: neon1 },
-  { id: 2, title: 'Cuadro de Neón 2', category: 'Neón LED', description: 'Figuras personalizadas de Neón', src: neon2 },
-  { id: 3, title: 'Cuadro de Neón 3', category: 'Neón LED', description: 'Carteles comerciales de Neón para locales', src: neon3 },
-  { id: 4, title: 'Estampado 1', category: 'Pastillas', description: 'Impresión directa en prendas', src: estampado1 },
-  { id: 5, title: 'Estampado 2', category: 'Pastillas', description: 'Remeras premium ideales para destacar tu marca', src: estampado2 },
-  { id: 6, title: 'Estampado 3', category: 'Pastillas', description: 'Sublimación', src: estampado3 },
-  { id: 7, title: 'Cartelería 1', category: 'Cartelería', description: 'Carteles para comercios', src: carteleria1 },
-  { id: 8, title: 'Cartelería 2', category: 'Corpóreos', description: 'Letras corporeas', src: carteleria2 },
-  { id: 9, title: 'Cartelería 3', category: 'Cartelería', description: 'Gran formato para evento', src: carteleria3 },
+  { id: 1, src: corporeo1, category: 'Corpóreos' },
+  { id: 2, src: corporeo2, category: 'Corpóreos' },
+  { id: 3, src: corporeo3, category: 'Corpóreos' },
+  { id: 4, src: corporeo4, category: 'Corpóreos' },
+  { id: 5, src: corporeo5, category: 'Corpóreos' },
+  { id: 6, src: corporeo6, category: 'Corpóreos' },
+  { id: 7, src: corporeo7, category: 'Corpóreos' },
+  { id: 8, src: corporeo8, category: 'Corpóreos' },
+  { id: 9, src: corporeo9, category: 'Corpóreos' },
+  { id: 10, src: corporeo10, category: 'Corpóreos' },
+  { id: 11, src: corporeo11, category: 'Corpóreos' },
+  { id: 12, src: corporeo12, category: 'Corpóreos' },
+  { id: 13, src: corporeo13, category: 'Corpóreos' },
+  { id: 14, src: corporeo14, category: 'Corpóreos' },
+  { id: 15, src: corporeo15, category: 'Corpóreos' },
+  { id: 16, src: corporeo16, category: 'Corpóreos' },
+  { id: 17, src: corporeo17, category: 'Corpóreos' },
+  { id: 18, src: corporeo18, category: 'Corpóreos' },
+  { id: 19, src: corporeo19, category: 'Corpóreos' },
+  { id: 20, src: corporeo20, category: 'Corpóreos' },
+
+  { id: 21, src: neon1, category: 'Neón LED' },
+  { id: 22, src: neon2, category: 'Neón LED' },
+  { id: 23, src: neon3, category: 'Neón LED' },
+  { id: 24, src: neon4, category: 'Neón LED' },
+  { id: 25, src: neon5, category: 'Neón LED' },
+  { id: 26, src: neon6, category: 'Neón LED' },
+  { id: 27, src: neon7, category: 'Neón LED' },
+  { id: 28, src: neon8, category: 'Neón LED' },
+  { id: 29, src: neon9, category: 'Neón LED' },
+  { id: 30, src: neon10, category: 'Neón LED' },
+  { id: 31, src: neon11, category: 'Neón LED' },
+
+  { id: 32, src: pastilla1, category: 'Pastillas' },
+  { id: 33, src: pastilla2, category: 'Pastillas' },
+  { id: 34, src: pastilla3, category: 'Pastillas' },
+  { id: 35, src: pastilla4, category: 'Pastillas' },
+  { id: 36, src: pastilla5, category: 'Pastillas' },
+  { id: 37, src: pastilla6, category: 'Pastillas' },
+  { id: 38, src: pastilla7, category: 'Pastillas' },
+
+  { id: 39, src: carteleria1, category: 'Cartelería' },
+  { id: 40, src: carteleria2, category: 'Cartelería' },
+  { id: 41, src: carteleria3, category: 'Cartelería' },
+  { id: 42, src: carteleria4, category: 'Cartelería' },
+  { id: 43, src: carteleria5, category: 'Cartelería' },
+  { id: 44, src: carteleria6, category: 'Cartelería' },
+  { id: 45, src: carteleria7, category: 'Cartelería' },
+  { id: 46, src: carteleria8, category: 'Cartelería' },
+  { id: 47, src: carteleria9, category: 'Cartelería' },
+  { id: 48, src: carteleria10, category: 'Cartelería' },
+  { id: 49, src: carteleria11, category: 'Cartelería' },
+  { id: 50, src: carteleria12, category: 'Cartelería' },
+  { id: 51, src: carteleria13, category: 'Cartelería' },
+  { id: 52, src: carteleria14, category: 'Cartelería' },
+  { id: 53, src: carteleria15, category: 'Cartelería' },
 ];
 
 const categories = ['Todos', 'Corpóreos', 'Neón LED', 'Pastillas', 'Cartelería'];
@@ -103,22 +197,15 @@ export default function GalleryPage() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  transition={{ duration: 0.3, delay: index * 0.02 }}
                   onClick={() => openLightbox(photo)}
                   className="group relative aspect-square bg-dark-card border border-white/5 rounded-xl overflow-hidden cursor-pointer hover:border-primary/30 transition-all duration-300"
                 >
                   <img
                     src={photo.src}
-                    alt={photo.title}
+                    alt=""
                     className="w-full h-full object-cover"
                   />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-white font-semibold text-sm mb-1">{photo.title}</h3>
-                    <p className="text-gray-400 text-xs">{photo.description}</p>
-                  </div>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -155,12 +242,12 @@ export default function GalleryPage() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="max-w-4xl w-full aspect-video bg-dark-card border border-white/10 rounded-2xl overflow-hidden"
+              className="max-w-4xl w-full max-h-[85vh] bg-dark-card border border-white/10 rounded-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={lightbox.src}
-                alt={lightbox.title}
+                alt=""
                 className="w-full h-full object-contain"
               />
             </motion.div>

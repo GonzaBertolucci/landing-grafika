@@ -60,7 +60,7 @@ export default function Gallery() {
             viewport={{ once: true }}
             className="inline-block text-primary text-sm font-bold tracking-[0.3em] uppercase mb-4"
           >
-            Portfolio
+            
           </motion.span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Algunos de nuestros <span className="text-primary neon-text">trabajos realizados</span>
