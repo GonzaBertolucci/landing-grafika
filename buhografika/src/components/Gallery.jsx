@@ -2,16 +2,18 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-import cartelComercial from '../assets/images/Carrusel cartel comercial 1.jpg';
-import neon from '../assets/images/Carrusel neon 1.jpg';
-import estampado from '../assets/images/Estampado 2.jpg';
-import lona from '../assets/images/Carrusel lona 1.jpg';
+import carrusel1 from '../assets/images/Carrsuel 1.webp';
+import carrusel2 from '../assets/images/Carrsuel 2.webp';
+import carrusel3 from '../assets/images/Carrsuel 3.webp';
+import carrusel4 from '../assets/images/Carrsuel 4.webp';
+import carrusel5 from '../assets/images/Carrsuel 5.webp';
 
 const slides = [
-  { id: 1, title: 'Cartelería', description: '', src: cartelComercial },
-  { id: 2, title: 'Cuadros de Neón', description: 'Decoración con luces neón personalizadas', src: neon },
-  { id: 3, title: 'Estampado de Remeras', description: 'Impresión directa en prendas', src: estampado },
-  { id: 4, title: 'Renovación de Lonas', description: 'Impresión en gran formato', src: lona },
+  { id: 1, src: carrusel1, pos: 'center 40%' },
+  { id: 2, src: carrusel2, pos: 'center 43%' },
+  { id: 3, src: carrusel3, pos: 'center 40%' },
+  { id: 4, src: carrusel4, pos: 'center 40%' },
+  { id: 5, src: carrusel5, pos: 'center 55%' },
 ];
 
 export default function Gallery() {
@@ -80,19 +82,10 @@ export default function Gallery() {
           >
             <img
               src={slides[current].src}
-              alt={slides[current].title}
+              alt=""
               className="w-full h-full object-cover"
+              style={{ objectPosition: slides[current].pos }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent" />
-            
-            <div className="absolute bottom-20 left-0 right-0 p-6 md:p-12 max-w-7xl mx-auto text-center md:text-left">
-              <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
-                {slides[current].title}
-              </h3>
-              <p className="text-gray-200 text-base md:text-xl max-w-2xl drop-shadow-md">
-                {slides[current].description}
-              </p>
-            </div>
           </motion.div>
         </AnimatePresence>
 

@@ -15,18 +15,18 @@ import carteleria2 from '../assets/images/Carteleria 2.jpg';
 import carteleria3 from '../assets/images/Carteleria 3.jpg';
 
 const photos = [
-  { id: 1, title: 'Cuadro de Neón 1', category: 'Neón', description: 'Cartel Personalizado con luces de Neón', src: neon1 },
-  { id: 2, title: 'Cuadro de Neón 2', category: 'Neón', description: 'Figuras personalizadas de Neón', src: neon2 },
-  { id: 3, title: 'Cuadro de Neón 3', category: 'Neón', description: 'Carteles comerciales de Neón para locales', src: neon3 },
-  { id: 4, title: 'Estampado 1', category: 'Estampado', description: 'Impresión directa en prendas', src: estampado1 },
-  { id: 5, title: 'Estampado 2', category: 'Estampado', description: 'Remeras premium ideales para destacar tu marca', src: estampado2 },
-  { id: 6, title: 'Estampado 3', category: 'Estampado', description: 'Sublimación', src: estampado3 },
+  { id: 1, title: 'Cuadro de Neón 1', category: 'Neón LED', description: 'Cartel Personalizado con luces de Neón', src: neon1 },
+  { id: 2, title: 'Cuadro de Neón 2', category: 'Neón LED', description: 'Figuras personalizadas de Neón', src: neon2 },
+  { id: 3, title: 'Cuadro de Neón 3', category: 'Neón LED', description: 'Carteles comerciales de Neón para locales', src: neon3 },
+  { id: 4, title: 'Estampado 1', category: 'Pastillas', description: 'Impresión directa en prendas', src: estampado1 },
+  { id: 5, title: 'Estampado 2', category: 'Pastillas', description: 'Remeras premium ideales para destacar tu marca', src: estampado2 },
+  { id: 6, title: 'Estampado 3', category: 'Pastillas', description: 'Sublimación', src: estampado3 },
   { id: 7, title: 'Cartelería 1', category: 'Cartelería', description: 'Carteles para comercios', src: carteleria1 },
-  { id: 8, title: 'Cartelería 2', category: 'Cartelería', description: 'Letras corporeas', src: carteleria2 },
+  { id: 8, title: 'Cartelería 2', category: 'Corpóreos', description: 'Letras corporeas', src: carteleria2 },
   { id: 9, title: 'Cartelería 3', category: 'Cartelería', description: 'Gran formato para evento', src: carteleria3 },
 ];
 
-const categories = ['Todos', 'Neón', 'Estampado', 'Cartelería'];
+const categories = ['Todos', 'Corpóreos', 'Neón LED', 'Pastillas', 'Cartelería'];
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
@@ -63,7 +63,7 @@ export default function GalleryPage() {
             className="text-center mb-12"
           >
             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-              Nuestra <span className="text-primary">Galería</span>
+              Nuestros <span className="text-primary neon-text">Trabajos</span>
             </h1>
             <p className="text-gray-400 max-w-2xl mx-auto">
               Mirá algunos de los trabajos que realizamos en BuhoGrafika.
