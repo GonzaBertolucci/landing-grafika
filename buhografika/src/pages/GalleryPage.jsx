@@ -242,13 +242,13 @@ export default function GalleryPage() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="max-w-4xl w-full max-h-[85vh] bg-dark-card border border-white/10 rounded-2xl overflow-hidden"
+              className="flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={lightbox.src}
                 alt=""
-                className="w-full h-full object-contain"
+                className="max-w-[90vw] max-h-[85vh] object-contain rounded-2xl"
               />
             </motion.div>
 
