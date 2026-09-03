@@ -35,7 +35,10 @@ export default function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname !== '/') return;
+    if (location.pathname !== '/') {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      return;
+    }
     if (location.hash) {
       setTimeout(() => {
         const el = document.querySelector(location.hash);
