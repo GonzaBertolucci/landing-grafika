@@ -15,16 +15,13 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import video1 from "../assets/videos/Video instalacion.mp4";
-import video2 from "../assets/videos/Video Instalcion 2.mp4";
-import video3 from "../assets/videos/Video Instalacion 3.mp4";
-import video4 from "../assets/videos/Video Instalacion 4.mp4";
 import logo2 from "../assets/images/Logo2.webp";
 
-const videos = [
-  { src: video1, label: "Instalación" },
-  { src: video2, label: "Proyecto 2" },
-  { src: video3, label: "Proyecto 3" },
-  { src: video4, label: "Proyecto 4" },
+const videoImports = [
+  () => Promise.resolve({ default: video1 }),
+  () => import("../assets/videos/Video Instalcion 2.mp4"),
+  () => import("../assets/videos/Video Instalacion 3.mp4"),
+  () => import("../assets/videos/Video Instalacion 4.mp4"),
 ];
 
 const benefits = [
@@ -54,15 +51,63 @@ export default function VideoSection() {
   const [current, setCurrent] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(false);
+  const [videoSrc, setVideoSrc] = useState(video1);
+  const [loaded, setLoaded] = useState({ 0: video1 });
   const videoRef = useRef(null);
 
-  const goTo = (index) => {
-    const next = (index + videos.length) % videos.length;
-    setCurrent(next);
-    setPlaying(false);
+  const loadVideo = async (index) => {
+    if (loaded[index]) return;
+    const mod = await videoImports[index]();
+    setLoaded((prev) => ({ ...prev, [index]: mod.default }));
+    return mod.default;
   };
 
-  //Sweep para videos
+  const goTo = async (index) => {
+    const next = (index + videoImports.length) % videoImports.length;
+    setPlaying(false);
+
+    if (loaded[next]) {
+      setVideoSrc(loaded[next]);
+    } else {
+      const src = await loadVideo(next);
+      if (src) setVideoSrc(src);
+    }
+
+    setCurrent(next);
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      loadVideo(1);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+      if (playing) {
+        videoRef.current.play();
+      }
+    }
+  }, [videoSrc]);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (playing) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setPlaying(!playing);
+  };
+
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !muted;
+    setMuted(!muted);
+  };
+
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
   const minSwipeDistance = 50;
@@ -84,37 +129,12 @@ export default function VideoSection() {
     const isRightSwipe = distance < -minSwipeDistance;
 
     if (isLeftSwipe) {
-      goTo(current === videos.length - 1 ? 0 : current + 1);
+      goTo(current === videoImports.length - 1 ? 0 : current + 1);
     }
 
     if (isRightSwipe) {
-      goTo(current === 0 ? videos.length - 1 : current - 1);
+      goTo(current === 0 ? videoImports.length - 1 : current - 1);
     }
-  };
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-      if (playing) {
-        videoRef.current.play();
-      }
-    }
-  }, [current]);
-
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (playing) {
-      videoRef.current.pause();
-    } else {
-      videoRef.current.play();
-    }
-    setPlaying(!playing);
-  };
-
-  const toggleMute = () => {
-    if (!videoRef.current) return;
-    videoRef.current.muted = !muted;
-    setMuted(!muted);
   };
 
   return (
@@ -156,7 +176,7 @@ export default function VideoSection() {
             <div className="relative mx-auto flex items-center justify-center gap-4 w-full" style={{ maxWidth: '440px' }}>
               <button
                 onClick={() => goTo(current - 1)}
-                className="hidden md:flex w-10 h-10 rounded-full bg-dark-card border border-white/10 flex items-center justify-center text-white hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 flex-shrink-0 z-20"
+                className="hidden md:flex w-10 h-10 rounded-full bg-dark-card border border-white/10 items-center justify-center text-white hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 flex-shrink-0 z-20"
               >
                 <FaChevronLeft size={14} />
               </button>
@@ -178,7 +198,7 @@ export default function VideoSection() {
                       <motion.video
                         key={current}
                         ref={videoRef}
-                        src={videos[current].src}
+                        src={videoSrc}
                         className="w-full h-full object-cover absolute inset-0"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -237,7 +257,7 @@ export default function VideoSection() {
                 </div>
 
                 <div className="flex justify-center gap-2 mt-4">
-                  {videos.map((_, i) => (
+                  {videoImports.map((_, i) => (
                     <button
                       key={i}
                       onClick={() => goTo(i)}
@@ -253,7 +273,7 @@ export default function VideoSection() {
 
               <button
                 onClick={() => goTo(current + 1)}
-                className="hidden md:flex w-10 h-10 rounded-full bg-dark-card border border-white/10 flex items-center justify-center text-white hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 flex-shrink-0 z-20"
+                className="hidden md:flex w-10 h-10 rounded-full bg-dark-card border border-white/10 items-center justify-center text-white hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 flex-shrink-0 z-20"
               >
                 <FaChevronRight size={14} />
               </button>
