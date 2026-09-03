@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
@@ -126,6 +126,10 @@ export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
   const [lightbox, setLightbox] = useState(null);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const filtered = selectedCategory === 'Todos'
     ? photos
     : photos.filter((p) => p.category === selectedCategory);
@@ -204,6 +208,7 @@ export default function GalleryPage() {
                   <img
                     src={photo.src}
                     alt=""
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                 </motion.div>

@@ -25,16 +25,16 @@ const testimonios = [
   },
   {
     id: 4,
-    nombre: "Bruno Dias",
+    nombre: "Loana Liste",
     negocio: "",
-    texto: "Eu so batman",
+    texto: "Súper recomendables, calidad de precio y trabajo 10/10. Buena atención al cliente!",
     estrellas: 5
   },
   {
     id: 5,
-    nombre: "Claudio Gattoronchieri",
+    nombre: "Nahuel Pintos",
     negocio: "",
-    texto: "Oscar Romero es Dios.",
+    texto: "Rapidísimo pedí calco de Xtz 2008 y lo hizo increíble no la encontraba en ningún lado.",
     estrellas: 5
   },
   {

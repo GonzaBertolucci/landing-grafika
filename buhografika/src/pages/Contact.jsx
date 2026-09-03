@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { FaEnvelope, FaPhone, FaMap, FaRegClock } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -6,6 +6,11 @@ import ContactCard from '../components/ContactCard';
 import ContactForm from '../components/ContactForm';
 
 export default function Contact() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#110f0f] text-white flex flex-col font-sans">
       <Navbar />
