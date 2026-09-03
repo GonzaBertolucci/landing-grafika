@@ -1,24 +1,53 @@
-import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaPlay, FaPause, FaWhatsapp, FaBolt, FaPaintBrush, FaClock, FaHeadset, FaVolumeMute, FaVolumeUp, FaChevronLeft, FaChevronRight, FaInstagram } from 'react-icons/fa';
-import video1 from '../assets/videos/Video instalacion.mp4';
-import video2 from '../assets/videos/Video Instalcion 2.mp4';
-import video3 from '../assets/videos/Video Instalacion 3.mp4';
-import video4 from '../assets/videos/Video Instalacion 4.mp4';
-import logo2 from '../assets/images/Logo2.webp';
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FaPlay,
+  FaPause,
+  FaWhatsapp,
+  FaBolt,
+  FaPaintBrush,
+  FaClock,
+  FaHeadset,
+  FaVolumeMute,
+  FaVolumeUp,
+  FaChevronLeft,
+  FaChevronRight,
+  FaInstagram,
+} from "react-icons/fa";
+import video1 from "../assets/videos/Video instalacion.mp4";
+import video2 from "../assets/videos/Video Instalcion 2.mp4";
+import video3 from "../assets/videos/Video Instalacion 3.mp4";
+import video4 from "../assets/videos/Video Instalacion 4.mp4";
+import logo2 from "../assets/images/Logo2.webp";
 
 const videos = [
-  { src: video1, label: 'Instalación' },
-  { src: video2, label: 'Proyecto 2' },
-  { src: video3, label: 'Proyecto 3' },
-  { src: video4, label: 'Proyecto 4' },
+  { src: video1, label: "Instalación" },
+  { src: video2, label: "Proyecto 2" },
+  { src: video3, label: "Proyecto 3" },
+  { src: video4, label: "Proyecto 4" },
 ];
 
 const benefits = [
-  { icon: FaBolt, title: 'Calidad Premium', desc: 'Materiales de primera y acabados impecables.' },
-  { icon: FaPaintBrush, title: 'Diseño Personalizado', desc: 'Cada proyecto es único, como tu marca.' },
-  { icon: FaClock, title: 'Entrega Rápida', desc: 'Cumplimos con los tiempos acordados.' },
-  { icon: FaHeadset, title: 'Atención Personalizada', desc: 'Te asesoramos en cada paso del proceso.' },
+  {
+    icon: FaBolt,
+    title: "Calidad Premium",
+    desc: "Materiales de primera y acabados impecables.",
+  },
+  {
+    icon: FaPaintBrush,
+    title: "Diseño Personalizado",
+    desc: "Cada proyecto es único, como tu marca.",
+  },
+  {
+    icon: FaClock,
+    title: "Entrega Rápida",
+    desc: "Cumplimos con los tiempos acordados.",
+  },
+  {
+    icon: FaHeadset,
+    title: "Atención Personalizada",
+    desc: "Te asesoramos en cada paso del proceso.",
+  },
 ];
 
 export default function VideoSection() {
@@ -31,6 +60,36 @@ export default function VideoSection() {
     const next = (index + videos.length) % videos.length;
     setCurrent(next);
     setPlaying(false);
+  };
+
+  //Sweep para videos
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    touchEndX.current = null;
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      goTo(current === videos.length - 1 ? 0 : current + 1);
+    }
+
+    if (isRightSwipe) {
+      goTo(current === 0 ? videos.length - 1 : current - 1);
+    }
   };
 
   useEffect(() => {
@@ -68,7 +127,7 @@ export default function VideoSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -77,8 +136,7 @@ export default function VideoSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="inline-block text-primary text-sm font-bold tracking-[0.3em] uppercase mb-4"
-          >
-          </motion.span>
+          ></motion.span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             <span className="text-primary neon-text">Instalación</span>
           </h2>
@@ -91,19 +149,25 @@ export default function VideoSection() {
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="relative mx-auto flex items-center gap-4" style={{ width: '440px' }}>
+            <div className="relative mx-auto flex items-center justify-center gap-4 w-full" style={{ maxWidth: '440px' }}>
               <button
                 onClick={() => goTo(current - 1)}
-                className="w-10 h-10 rounded-full bg-dark-card border border-white/10 flex items-center justify-center text-white hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 flex-shrink-0 z-20"
+                className="hidden md:flex w-10 h-10 rounded-full bg-dark-card border border-white/10 flex items-center justify-center text-white hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 flex-shrink-0 z-20"
               >
                 <FaChevronLeft size={14} />
               </button>
 
-              <div className="relative" style={{ width: '360px' }}>
+              <div
+                className="relative"
+                style={{ width: "360px" }}
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+              >
                 <div className="bg-dark-card rounded-[2.5rem] border-4 border-gray-800 p-2 shadow-2xl">
                   <div className="flex items-center justify-center py-1 mb-1">
                     <div className="w-16 h-1 bg-gray-700 rounded-full" />
@@ -142,7 +206,11 @@ export default function VideoSection() {
                           onClick={toggleMute}
                           className="w-9 h-9 rounded-full bg-dark/60 flex items-center justify-center text-white hover:bg-dark/80 transition-colors duration-300"
                         >
-                          {muted ? <FaVolumeMute size={12} /> : <FaVolumeUp size={12} />}
+                          {muted ? (
+                            <FaVolumeMute size={12} />
+                          ) : (
+                            <FaVolumeUp size={12} />
+                          )}
                         </button>
                         <button
                           onClick={togglePlay}
@@ -156,8 +224,14 @@ export default function VideoSection() {
                     <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-dark/50 via-transparent to-transparent" />
 
                     <div className="absolute top-3 left-3 flex items-center gap-2 z-10">
-                      <img src={logo2} alt="BuhoGrafika" className="w-8 h-8 rounded-full object-cover" />
-                      <span className="text-white text-xs font-medium">buhografika</span>
+                      <img
+                        src={logo2}
+                        alt="BuhoGrafika"
+                        className="w-8 h-8 rounded-full object-cover"
+                      />
+                      <span className="text-white text-xs font-medium">
+                        buhografika
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -168,7 +242,9 @@ export default function VideoSection() {
                       key={i}
                       onClick={() => goTo(i)}
                       className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        i === current ? 'bg-primary w-6' : 'bg-white/30 hover:bg-white/50'
+                        i === current
+                          ? "bg-primary w-6"
+                          : "bg-white/30 hover:bg-white/50"
                       }`}
                     />
                   ))}
@@ -177,7 +253,7 @@ export default function VideoSection() {
 
               <button
                 onClick={() => goTo(current + 1)}
-                className="w-10 h-10 rounded-full bg-dark-card border border-white/10 flex items-center justify-center text-white hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 flex-shrink-0 z-20"
+                className="hidden md:flex w-10 h-10 rounded-full bg-dark-card border border-white/10 flex items-center justify-center text-white hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 flex-shrink-0 z-20"
               >
                 <FaChevronRight size={14} />
               </button>
@@ -187,11 +263,11 @@ export default function VideoSection() {
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="flex-1 max-w-xl"
           >
-            <div className="mb-8">
+            <div className="mb-8 ml-11">
               <motion.a
                 href="https://www.instagram.com/buhografika"
                 target="_blank"
@@ -220,8 +296,12 @@ export default function VideoSection() {
                     <item.icon className="text-primary text-xl" />
                   </div>
                   <div>
-                    <h4 className="text-primary font-bold text-base uppercase tracking-wide mb-1">{item.title}</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                    <h4 className="text-primary font-bold text-base uppercase tracking-wide mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -235,12 +315,13 @@ export default function VideoSection() {
               className="mt-10"
             >
               <a
-                href={`https://wa.me/5491122389792?text=${encodeURIComponent('¡Hola! Vi tu pagina y me gustaría pedir más información.')}`}
+                href={`https://wa.me/5491122389792?text=${encodeURIComponent("¡Hola! Vi tu pagina y me gustaría pedir más información.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BA5C] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300"
                 style={{
-                  boxShadow: '0 0 10px #25D366, 0 0 20px rgba(37, 211, 102, 0.3), 0 0 40px rgba(37, 211, 102, 0.1)',
+                  boxShadow:
+                    "0 0 10px #25D366, 0 0 20px rgba(37, 211, 102, 0.3), 0 0 40px rgba(37, 211, 102, 0.1)",
                 }}
               >
                 <FaWhatsapp className="text-xl" />

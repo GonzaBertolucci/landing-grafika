@@ -1,15 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InputForm from './InputForm';
 
 export default function ContactForm() {
   const glowShadow = "shadow-[0_0_15px_rgba(255,0,0,0.5)]";
   const glowBorder = "border-2 border-red-600";
+  
+  const [resultado, setResultado] = useState("");
+
+  const enviarFormulario = async (event) => {
+    event.preventDefault();
+    setResultado("Enviando...");
+
+    const formData = new FormData(event.target);
+    
+    //                                     ACCESS KEY
+    formData.append("access_key", "2fa4dc43-c002-4d73-b265-7cc20509d68a");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResultado("✅ ¡Mensaje enviado con éxito!");
+        event.target.reset();
+      } else {
+        setResultado("❌ Hubo un error al enviar el mensaje.");
+      }
+    } catch (error) {
+      console.error(error);
+      setResultado("❌ Error de conexión.");
+    }
+  };
 
   return (
     <div className={`bg-[#1e1e1e] rounded-3xl p-8 ${glowBorder} ${glowShadow}`}>
       <form 
-        action="https://formspree.io/f/xnpawqvy" 
-        method="POST"
+        onSubmit={enviarFormulario} 
         className="space-y-6 flex flex-col h-full justify-between"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -35,6 +65,12 @@ export default function ContactForm() {
         >
           ENVIAR TU CONSULTA
         </button>
+
+        {resultado && (
+          <p className="text-center text-sm font-medium text-gray-300 mt-2">
+            {resultado}
+          </p>
+        )}
       </form>
     </div>
   );
