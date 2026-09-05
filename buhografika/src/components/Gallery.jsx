@@ -2,23 +2,39 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-import carrusel1 from '../assets/images/Carrsuel 1.webp';
-import carrusel2 from '../assets/images/Carrsuel 2.webp';
-import carrusel3 from '../assets/images/Carrsuel 3.webp';
-import carrusel4 from '../assets/images/Carrsuel 4.webp';
-import carrusel5 from '../assets/images/Carrsuel 5.webp';
+import carrusel1 from '../assets/images/Carrusel 1.webp';
+import carrusel2 from '../assets/images/Carrusel 2.webp';
+import carrusel3 from '../assets/images/Carrusel 3.webp';
+import carrusel4 from '../assets/images/Carrusel 4.webp';
+import carrusel5 from '../assets/images/Carrusel 5.webp';
+import carrusel6 from '../assets/images/Carrusel 6.webp';
+import carrusel7 from '../assets/images/Carrusel 7.webp';
+import carrusel8 from '../assets/images/Carrusel 8.webp';
+import carrusel9 from '../assets/images/Carrusel 9.webp';
 
 const slides = [
-  { id: 1, src: carrusel1, pos: 'center 40%' },
-  { id: 2, src: carrusel2, pos: 'center 43%' },
-  { id: 3, src: carrusel3, pos: 'center 40%' },
-  { id: 4, src: carrusel4, pos: 'center 40%' },
-  { id: 5, src: carrusel5, pos: 'center 55%' },
+  { id: 1, src: carrusel1, desktop: 'center 40%', mobile: '78% 70%' },
+  { id: 2, src: carrusel2, desktop: 'center 62%', mobile: 'center 50%' },
+  { id: 3, src: carrusel3, desktop: 'center 40%', mobile: '53% 40%' },
+  { id: 4, src: carrusel4, desktop: 'center 38%', mobile: 'center 30%' },
+  { id: 5, src: carrusel5, desktop: 'center 17%', mobile: 'center 15%' },
+  { id: 6, src: carrusel6, desktop: 'center 37%', mobile: '40% 30%' },
+  { id: 7, src: carrusel7, desktop: 'center 55%', mobile: 'center 45%' },
+  { id: 8, src: carrusel8, desktop: 'center 35%', mobile: 'center 30%' },
+  {id: 9, src: carrusel9, desktop: 'center 35%', mobile: 'center 30%'}
 ];
 
 export default function Gallery() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   const next = useCallback(() => {
     setDirection(1);
@@ -60,7 +76,6 @@ export default function Gallery() {
             viewport={{ once: true }}
             className="inline-block text-primary text-sm font-bold tracking-[0.3em] uppercase mb-4"
           >
-            
           </motion.span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Algunos de nuestros <span className="text-primary neon-text">trabajos realizados</span>
@@ -84,7 +99,7 @@ export default function Gallery() {
               src={slides[current].src}
               alt=""
               className="w-full h-full object-cover"
-              style={{ objectPosition: slides[current].pos }}
+              style={{ objectPosition: isMobile ? slides[current].mobile : slides[current].desktop }}
             />
           </motion.div>
         </AnimatePresence>
